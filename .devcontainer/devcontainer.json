@@ -1,0 +1,6 @@
+
+{
+    "name": "GraphQL",
+    "image": "node:18",
+    "remoteUser": "node"
+}
