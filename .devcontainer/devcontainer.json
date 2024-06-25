@@ -2,5 +2,6 @@
 {
     "name": "GraphQL",
     "image": "node:18",
+    "forwardPorts": [4000],
     "remoteUser": "node"
 }
