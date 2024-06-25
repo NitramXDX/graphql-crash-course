@@ -3,5 +3,13 @@
     "name": "GraphQL",
     "image": "node:18",
     "forwardPorts": [4000],
+    "customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"GraphQL.vscode-graphql-syntax"
+			]
+        }
+    },
     "remoteUser": "node"
 }
