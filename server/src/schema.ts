@@ -18,7 +18,7 @@ export const typeDefs: any = `#graphql
     }
 
     type Query { # Its not optional
-        reviews: [Reviews]
+        reviews: [Review]
         games: [Game]
         authors: [Author]
     }
