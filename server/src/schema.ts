@@ -18,8 +18,11 @@ export const typeDefs: any = `#graphql
     }
 
     type Query { # Its not optional
-        reviews: [Review]
+        reviews: [Review] # All reviews
+        review(id: ID!): Review # Unique review by id
         games: [Game]
+        game(id: ID!): Game
         authors: [Author]
+        author(id: ID!): Author
     }
 `
