@@ -5,7 +5,7 @@
   "scripts": {
     "compile": "tsc",
     "start": "npm run compile && node ./dist/index.js",
-    "dev": "npm run compile && nodemon ./dist/index.js -e ts -w ./src"
+    "dev": "npm run compile && nodemon --exec \"tsc && nodemon\" ./dist/index.js -e ts -w ./src"
   },
   "keywords": [],
   "author": "",
