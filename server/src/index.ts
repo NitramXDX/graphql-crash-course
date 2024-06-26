@@ -6,6 +6,7 @@ import db from './_db.js';
 
 // types
 import { typeDefs } from './schema.js';
+import { parentPort } from 'worker_threads';
 
 const resolvers = {
   Query: {
@@ -44,6 +45,31 @@ const resolvers = {
     },
     game(parent: any) {
       return db.games.find((r) => r.id === parent.game_id)
+    }
+  },
+  Mutation: {
+    deleteGame(_: any, args: any) {
+      db.games = db.games.filter((g) => g.id !== args.id)
+
+      return db.games
+    },
+    addGame(_: any, args: any) {
+     let game = {
+      ...args.game,
+      id: Math.floor(Math.random() * 10000).toString()
+     }
+     db.games.push(game)
+     return game
+    },
+    updateGame(_: any, args: any) {
+      db.games = db.games.map((g) => {
+        if (g.id === args.id) {
+          return {...g, ...args.edits}
+        }
+        return g
+      })
+
+      return db.games.find((g) => g.id === args.id)
     }
   }
 }
