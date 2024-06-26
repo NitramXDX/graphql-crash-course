@@ -3,18 +3,22 @@ export const typeDefs: any = `#graphql
         id: ID! # Special type for id's
         title: String! # Exclamation mark is for required fields
         platform: [String!]! # Array of strings
+        reviews: [Review!] # The exclamation mark is not necessary outside because a game doesn't have a review list necessarily, but if it does, review is required (exclamation mark) inside.
     }
 
     type Review {
         id: ID!
         rating: Int!
         content: String!
+        game: Game!
+        author: Author!
     }
 
     type Author {
         id: ID!
         name: String!
         verified: Boolean!
+        reviews: [Review!]
     }
 
     type Query { # Its not optional
